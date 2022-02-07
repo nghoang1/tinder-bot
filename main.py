@@ -3,7 +3,9 @@ from selenium.common.exceptions import ElementClickInterceptedException, NoSuchE
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 import time
-chrome_driver_path = r"C:\Users\hoang\Desktop\chromedriver_win32\chromedriver.exe"
+MY_EMAIL = "ENTER YOUR EMAIL"
+PASSWORD = "ENTER YOUR PASSWORD"
+chrome_driver_path = "YOUR CHROME DRIVER PATH"
 driver = webdriver.Chrome(executable_path=chrome_driver_path)
 driver.get("https://tinder.com/")
 time.sleep(5)
@@ -17,19 +19,16 @@ facebook.click()
 time.sleep(5)
 base_window = driver.window_handles[0]
 fb_login_window = driver.window_handles[1]
+
+#Switch to facebook window
 driver.switch_to.window(fb_login_window)
 #print(driver.title)
 email = driver.find_element(By.XPATH, '//*[@id="email"]')
-email.send_keys("ngantestingemail@gmail.com")
+email.send_keys(MY_EMAIL)
 password = driver.find_element(By.XPATH, '//*[@id="pass"]')
-password.send_keys("Hkn12008631")
+password.send_keys(PASSWORD)
 login_fb = driver.find_element(By.XPATH, '//*[@id="loginbutton"]')
 login_fb.click()
-#next = driver.find_element(By.XPATH, '//*[@id="identifierNext"]/div/button/span')
-#next.click()
-#time.sleep(5)
-#password = driver.find_element(By.XPATH, '//*[@id="pass"]')
-#password.send_keys("Hkn12008631")
 
 time.sleep(5)
 #Switch back to Tinder window
